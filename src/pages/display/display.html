@@ -1,0 +1,98 @@
+<ion-header>  
+    <ion-navbar>    
+        <ion-title>  
+          ORDER YOUR PIZZA
+        </ion-title>  
+    </ion-navbar> 
+</ion-header> 
+<ion-content padding>  
+  <ion-card>   
+              <ion-card-header>  
+      Please start ordering your pizza now
+              </ion-card-header>   
+        <ion-card-content>
+            <ion-item>
+                <ion-label>Iam a Vegetarian</ion-label>
+                <ion-toggle (click)="isClicked(data.myToggle)"
+                [(ngModel)]="data.myToggle"></ion-toggle>
+              </ion-item>
+
+              <ion-card *ngIf="data.myToggle">   
+                <ion-card-header>      I only eat vegetarian foods   
+                    </ion-card-header> 
+                    <ion-list>
+
+                        <ion-item>
+                        <ion-label>Mushrooms</ion-label>
+                         <ion-toggle [(ngModel)]="mushrooms"></ion-toggle>
+                        </ion-item>
+
+                        <ion-item>
+                         <ion-label>Peppers</ion-label>
+                         <ion-toggle [(ngModel)]="peppers"></ion-toggle>
+                         </ion-item>
+
+                       <ion-item>
+                         <ion-label>Onions</ion-label>
+                         <ion-toggle [(ngModel)]="onions"></ion-toggle>
+                       </ion-item>
+
+                       <ion-item>
+                         <ion-label>Olives</ion-label>
+                         <ion-toggle [(ngModel)]="olives"></ion-toggle>
+                       </ion-item>
+
+                       <ion-item>
+                         <ion-label>Tomatoes</ion-label>
+                         <ion-toggle [(ngModel)]="tomatoes"></ion-toggle>
+                       </ion-item>
+
+                     </ion-list>
+               </ion-card> 
+               <ion-card *ngIf="!data.myToggle">
+                  <ion-card-header>      I love meat    </ion-card-header>   
+                  <ion-list>
+
+                      <ion-item>
+                       <ion-label>Chicken</ion-label>
+                       <ion-toggle [(ngModel)]="Chicken"></ion-toggle>
+                     </ion-item>
+
+                      <ion-item>
+                      <ion-label>Beef</ion-label>
+                       <ion-toggle [(ngModel)]="Beef"></ion-toggle>
+                       </ion-item>
+
+                     <ion-item>
+                       <ion-label>Pepperoni</ion-label>
+                       <ion-toggle [(ngModel)]="pepperoni"></ion-toggle>
+                     </ion-item>
+
+                  
+                     <ion-item>
+                       <ion-label>Sausage</ion-label>
+                       <ion-toggle [(ngModel)]="sausage"></ion-toggle>
+                     </ion-item>
+
+                     <ion-item>
+                       <ion-label>Ham</ion-label>
+                       <ion-toggle [(ngModel)]="mushrooms"></ion-toggle>
+                     </ion-item>
+
+                   </ion-list>  
+               </ion-card>
+
+               <button ion-button (click)="showToast()" round>Send Order</button>
+               <button ion-button (click)="onLogOut()" round>Log Out</button>
+
+
+
+
+
+        </ion-card-content>  
+
+  </ion-card> 
+
+
+
+</ion-content> 

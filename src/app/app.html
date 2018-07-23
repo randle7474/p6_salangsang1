@@ -1,19 +1,46 @@
-<ion-menu [content]="content">
-  <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <ion-content>
-    <ion-list>
-      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-        {{p.title}}
-      </button>
-    </ion-list>
-  </ion-content>
-
-</ion-menu>
-
-<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
-<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
+<ion-menu [content]="nav">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <button
+          ion-item
+          icon-left
+          (click)="onLoad(rootPage)"
+          *ngIf="isAuthenticated">
+          <ion-icon name="heart"></ion-icon>
+          SIGN IN
+        </button>
+        <button
+          ion-item
+          icon-left
+          (click)="onLoad(HomePage)"
+          *ngIf="!isAuthenticated">
+          <ion-icon name="log-in"></ion-icon>
+          SIGN IN
+        </button>
+        <button
+          ion-item
+          icon-left
+          (click)="onLoad(ListPage)"
+          *ngIf="!isAuthenticated">
+          <ion-icon name="person"></ion-icon>
+          Register
+        </button>
+        <button
+          ion-item
+          icon-left
+          (click)="onLogout(Register)"
+          *ngIf="isAuthenticated">
+          <ion-icon name="log-out"></ion-icon>
+          Logout
+        </button>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-nav [root]="rootPage" #nav></ion-nav>
+  
